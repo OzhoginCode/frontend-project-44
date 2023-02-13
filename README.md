@@ -5,3 +5,6 @@
 
 brain-even:
 https://asciinema.org/a/pfuRrrEZ15XE9vOMgvspNzcEX
+
+brain-calc:
+https://asciinema.org/a/CpP4DEDtyaJGnEcfiVOQvFBN0
