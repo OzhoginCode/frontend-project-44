@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 import { welcome } from './source.js';
 import { getRulesForEven, getQuestionForEven, getCorrectAnswerForEven } from './games/even.js';
 import { getRulesForCalc, getQuestionForCalc, getCorrectAnswerForCalc } from './games/calc.js';
+import { getRulesForGCD, getQuestionForGCD, getCorrectAnswerForGCD } from './games/gcd.js';
 
 const username = welcome();
 
@@ -12,6 +13,9 @@ function displayGameRules(game) {
       break;
     case 'calc':
       getRulesForCalc();
+      break;
+    case 'gcd':
+      getRulesForGCD();
       break;
     default:
       break;
@@ -24,6 +28,8 @@ function getQuestionForGame(game) {
       return getQuestionForEven();
     case 'calc':
       return getQuestionForCalc();
+    case 'gcd':
+      return getQuestionForGCD();
     default:
       return null;
   }
@@ -35,6 +41,8 @@ function getCorrectAnswer(game, question) {
       return getCorrectAnswerForEven(question);
     case 'calc':
       return getCorrectAnswerForCalc(question);
+    case 'gcd':
+      return getCorrectAnswerForGCD(question);
     default:
       return null;
   }
