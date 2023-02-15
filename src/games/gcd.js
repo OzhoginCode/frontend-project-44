@@ -1,7 +1,7 @@
 import { getRandomNumber } from '../source.js';
 
 export function getRulesForGCD() {
-  console.log('Find the greatest common divisor of given numbers.');
+  return 'Find the greatest common divisor of given numbers.';
 }
 
 export function getQuestionForGCD() {

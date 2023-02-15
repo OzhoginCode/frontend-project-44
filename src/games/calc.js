@@ -14,7 +14,7 @@ function getOperation() {
 }
 
 export function getRulesForCalc() {
-  console.log('What is the result of the expression?');
+  return 'What is the result of the expression?';
 }
 
 export function getQuestionForCalc() {

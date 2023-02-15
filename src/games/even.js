@@ -5,7 +5,7 @@ function isEven(num) {
 }
 
 export function getRulesForEven() {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  return 'Answer "yes" if the number is even, otherwise answer "no".';
 }
 
 export function getQuestionForEven() {
