@@ -9,8 +9,7 @@ export function getRulesForEven() {
 }
 
 export function getQuestionForEven() {
-  const randomNumber = getRandomNumber();
-  return randomNumber;
+  return getRandomNumber();
 }
 
 export function getCorrectAnswerForEven(question) {
