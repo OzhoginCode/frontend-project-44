@@ -1,5 +1,12 @@
 import { getRandomNumber } from '../source.js';
 
+function getStepOfProgression(array) {
+  for (let i = 0; i < 10; i += 1) {
+    if (array[i] !== '..' && array[i + 1] !== '..') return array[i + 1] - array[i];
+  }
+  return null;
+}
+
 export function getRulesForProgression() {
   return 'What number is missing in the progression?';
 }
@@ -16,13 +23,6 @@ export function getQuestionForProgression() {
 
   const result = array.join(' ');
   return `${result}`;
-}
-
-function getStepOfProgression(array) {
-  for (let i = 0; i < 10; i += 1) {
-    if (array[i] !== '..' && array[i + 1] !== '..') return array[i + 1] - array[i];
-  }
-  return null;
 }
 
 export function getCorrectAnswerForProgression(question) {
