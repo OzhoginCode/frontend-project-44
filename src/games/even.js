@@ -1,7 +1,7 @@
 import { getRandomNumber } from '../source.js';
 
 function isEven(num) {
-  return num % 2 === 0 ? 'yes' : 'no';
+  return num % 2 === 0;
 }
 
 export function getRulesForEven() {
@@ -13,5 +13,5 @@ export function getQuestionForEven() {
 }
 
 export function getCorrectAnswerForEven(question) {
-  return isEven(question);
+  return isEven(question) ? 'yes' : 'no';
 }

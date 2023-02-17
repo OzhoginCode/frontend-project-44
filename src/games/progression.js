@@ -1,10 +1,26 @@
 import { getRandomNumber } from '../source.js';
 
-function getStepOfProgression(array) {
-  for (let i = 0; i < 10; i += 1) {
-    if (array[i] !== '..' && array[i + 1] !== '..') return array[i + 1] - array[i];
+function getProgression(limitOfProgressionStep, progressionLength) {
+  const firstNumOfProgression = getRandomNumber();
+  const stepOfProgression = getRandomNumber(limitOfProgressionStep);
+  const progression = [firstNumOfProgression];
+
+  for (let i = 0; i < (progressionLength - 1); i += 1) {
+    progression.push(progression.at(-1) + stepOfProgression);
   }
-  return null;
+  return progression;
+}
+
+function getStepOfProgression(progression) {
+  if (progression[0] !== '..' && progression[1] !== '..') return progression[1] - progression[0];
+  return progression[3] - progression[2];
+}
+
+function getSkippedNumber(progression, stepOfProgression) {
+  if (progression.indexOf('..') !== (progression.length - 1)) {
+    return String(progression[progression.indexOf('..') + 1] - stepOfProgression);
+  }
+  return String(Number(progression[progression.indexOf('..') - 1]) + Number(stepOfProgression));
 }
 
 export function getRulesForProgression() {
@@ -12,24 +28,18 @@ export function getRulesForProgression() {
 }
 
 export function getQuestionForProgression() {
-  const firstNumOfProgression = getRandomNumber();
-  const stepOfProgression = getRandomNumber(10);
-  const numOfSkippedNum = getRandomNumber(10);
-  const array = [firstNumOfProgression];
-  for (let i = 0; i < 9; i += 1) {
-    array.push(array.at(-1) + stepOfProgression);
-  }
-  array[numOfSkippedNum - 1] = '..';
+  const limitOfProgressionStep = 10;
+  const progressionLength = 10;
+  const progression = getProgression(limitOfProgressionStep, progressionLength);
 
-  const result = array.join(' ');
-  return `${result}`;
+  const numOfSkippedNum = getRandomNumber(progressionLength);
+  progression[numOfSkippedNum - 1] = '..';
+  return `${progression.join(' ')}`;
 }
 
 export function getCorrectAnswerForProgression(question) {
-  const array = question.split(' ');
-  const stepOfProgression = getStepOfProgression(array);
-  if (array.indexOf('..') !== 9) {
-    return String(array[array.indexOf('..') + 1] - stepOfProgression);
-  }
-  return String(Number(array[array.indexOf('..') - 1]) + Number(stepOfProgression));
+  const progression = question.split(' ');
+  const stepOfProgression = getStepOfProgression(progression);
+
+  return getSkippedNumber(progression, stepOfProgression);
 }

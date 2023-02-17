@@ -26,13 +26,15 @@ export function getQuestionForCalc() {
 
 export function getCorrectAnswerForCalc(question) {
   const array = question.split(' ');
-  switch (array[1]) {
+  const [firstNum, operation, secondNum] = array;
+
+  switch (operation) {
     case '+':
-      return String((Number(array[0]) + Number(array[2])));
+      return String((Number(firstNum) + Number(secondNum)));
     case '-':
-      return String((array[0] - array[2]));
+      return String((firstNum - secondNum));
     case '*':
-      return String((array[0] * array[2]));
+      return String((firstNum * secondNum));
     default:
       return null;
   }
